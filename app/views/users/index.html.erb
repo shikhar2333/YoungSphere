@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-<% if @users.length %>
+<% if @users.length and user_signed_in?%>
   <table class="table table-striped">
     <tr>
       <th scope="column">Name</th>
@@ -16,7 +16,6 @@
       <tr class="themed-grid-col">
           <td scope="row"><%= user.name %></td>
           <td scope="row"><%= user.email %></td>
-          <td scope="row"><%= link_to "Destroy", user, method: :delete, data: { confirm: 'Are you sure?' }%></td>
       </tr>
       </tbody>
     <% end %>
@@ -25,5 +24,6 @@
 
       
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<% if not user_signed_in? %>
+  <%= link_to 'New User',  new_user_registration_path %>
+<% end %>

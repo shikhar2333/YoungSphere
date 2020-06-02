@@ -6,14 +6,16 @@ gem 'puma',       '4.3.5'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
-gem 'bcrypt',         '3.1.13'
+gem 'jquery-turbolinks'
+gem 'bcrypt',     '3.1.13'
+gem 'devise',     '~> 4.2'
 gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
 
 group :development, :test do
-  gem 'sqlite3', '1.4.1'
+  gem 'pg', '~> 1.2', '>= 1.2.3'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -30,9 +32,9 @@ group :test do
   gem 'webdrivers',         '4.1.2'
 end
 
-group :production do
-  gem 'pg', '1.1.4'
-end
+# group :production do
+#   gem 'pg', '1.1.4'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # Uncomment the following line if you're running Rails
