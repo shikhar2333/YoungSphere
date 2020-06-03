@@ -13,9 +13,8 @@ gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
-
+gem 'pg', '~> 1.2', '>= 1.2.3'
 group :development, :test do
-  gem 'pg', '~> 1.2', '>= 1.2.3'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -33,7 +32,7 @@ group :test do
 end
 
 # group :production do
-#   gem 'pg', '1.1.4'
+#   gem 'pg', '~> 1.2', '>= 1.2.3'
 # end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
