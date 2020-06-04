@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'bcrypt',     '3.1.13'
 gem 'devise',     '~> 4.2'
-gem 'webpacker',  '4.0.7'
+gem 'webpacker', '~> 5.x'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
