@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'upload/default'
+  post 'upload/default', to: 'upload#host'
   root 'users#index'
   # resources :users
   # devise_for :users, path_names: {

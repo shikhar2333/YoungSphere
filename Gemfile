@@ -13,6 +13,9 @@ gem 'webpacker', '~> 5.x'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem 'aws-sdk-rails', '~> 2.0', '>= 2.0.1'
+gem 's3_uploader', '~> 0.2.3'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 group :development, :test do
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]

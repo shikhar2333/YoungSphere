@@ -12,24 +12,25 @@
   <body>
     <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-        <div class="navbar-header">
-          <%= link_to 'Devise Demo', root_path, class: 'navbar-brand' %>
-        </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', root_path %></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
-              <li class="dropdown">
+              <li class="dropdown-item">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   <%= current_user.name %>
                   <span class="caret"></span>
                 </a>
-                <li class="dropdown-item"><%= link_to 'Profile', edit_user_registration_path %></li>
-                <li class="dropdown-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-                </ul>
               </li>
+              <li class="dropdown-item"><%= link_to 'Profile', edit_user_registration_path %></li>
+              <li class="dropdown-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              <%# <%if not current_user.static_website.attached? %> %>
+                <li class="dropdown-item"><%= link_to 'Upload', upload_default_path %></li>
+              <%# <% else %>
+                <%# <li class="dropdown-item"><%= link_to 'Edit Upload', upload_default_path %></li> %>
+              <%# <%end%> %>
             <% else %>
               <li><%= link_to 'Log In', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>

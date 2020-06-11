@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:host, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -7,9 +7,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def upload
+    # puts params[:static_website]
+  end
   # GET /users/1
   # GET /users/1.json
-  def show
+  def host
+    current_user.static_website.attach(params[:static_website])
+    # current_user.update_attributes()
+    puts "Status bitches:" + current_user.static_website.attached?.to_s
+    # redirect_to url_for(current_user.static_website)
   end
 
   # GET /users/new
@@ -64,11 +71,12 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      # @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+    # def user_params
+    #   # @user = User.new
+    #   params.require(:static_website).permit(:original_filename)
+    # end
 end

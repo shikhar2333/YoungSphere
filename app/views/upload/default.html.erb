@@ -1,0 +1,7 @@
+<h1>Upload#default</h1>
+<div class="field">
+    <%= form_with(model: @user, local: true) do |f| %>
+        <%= f.file_field :static_website %>
+        <%= f.submit "Upload", class: "btn btn-primary" %>
+    <% end %>   
+</div>
