@@ -1,7 +1,7 @@
 require 'zip'
 require 'aws-sdk-s3' 
 require 'securerandom'  
-module UploadHelper
+module ScenariosHelper
     def unzip_file (file, destination)
         FileUtils.mkdir_p(destination)
         Zip::File.open(file) do |zip_file|
@@ -12,8 +12,8 @@ module UploadHelper
            end
         end
     end
-    def return_new_bucket (dir, bucket)
-        bucket = "#{bucket}-#{SecureRandom.uuid}"
+    def return_new_bucket (dir, bucket, scenario)
+        bucket = "youngsphere-#{current_user.name}-#{scenario.id}"
         profile_name = 'JinMoRi'
         puts "Bucket" + bucket.to_s
         region = 'ap-south-1'
@@ -27,29 +27,6 @@ module UploadHelper
             :threads => 10
            })
         uploader.upload(dir, bucket)
-        # s3.put_object(
-        #     bucket: bucket,
-        #     key: "index.html",
-        #     body: "Hello, Amazon S3!",
-        #     acl: "public-read"
-        #   )
-        #   s3.put_object(
-        #     bucket: bucket,
-        #     key: "error.html",
-        #     body: "Page not found!",
-        #     acl: "public-read"
-        #   )
-        #   s3.put_bucket_website(
-        #     bucket: bucket,
-        #     website_configuration: {
-        #       index_document: {
-        #         suffix: "index.html"
-        #       },
-        #       error_document: {
-        #         key: "error.html"
-        #       }
-        #     }
-        #   )
         bucket_contents = s3.list_objects(bucket: bucket).contents
         aws_folder = "app"
         acl = 'public-read'

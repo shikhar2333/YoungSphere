@@ -27,7 +27,7 @@
               <li class="dropdown-item"><%= link_to 'Profile', edit_user_registration_path %></li>
               <li class="dropdown-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
               <%# <%if not current_user.static_website.attached? %> %>
-                <li class="dropdown-item"><%= link_to 'Upload', upload_default_path %></li>
+                <li class="dropdown-item"><%= link_to 'Upload', new_scenario_path %></li>
               <%# <% else %>
                 <%# <li class="dropdown-item"><%= link_to 'Edit Upload', upload_default_path %></li> %>
               <%# <%end%> %>

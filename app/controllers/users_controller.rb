@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def host
     current_user.static_website.attach(params[:static_website])
     # current_user.update_attributes()
-    puts "Status bitches:" + current_user.static_website.attached?.to_s
+    puts "Status:" + current_user.static_website.attached?.to_s
     # redirect_to url_for(current_user.static_website)
   end
 
