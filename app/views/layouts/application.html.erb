@@ -26,11 +26,8 @@
               </li>
               <li class="dropdown-item"><%= link_to 'Profile', edit_user_registration_path %></li>
               <li class="dropdown-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-              <%# <%if not current_user.static_website.attached? %> %>
-                <li class="dropdown-item"><%= link_to 'Upload', new_scenario_path %></li>
-              <%# <% else %>
-                <%# <li class="dropdown-item"><%= link_to 'Edit Upload', upload_default_path %></li> %>
-              <%# <%end%> %>
+              <li class="dropdown-item"><%= link_to 'Upload', new_scenario_path %></li>
+              <li class="dropdown-menu"><%= link_to 'Scan Image', new_scan_image_path %></li>
             <% else %>
               <li><%= link_to 'Log In', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>

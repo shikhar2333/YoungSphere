@@ -4,6 +4,7 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :lockable
     has_many :scenarios
+    has_many :scan_images
     # before_save { self.email = self.email.downcase }
     # validates :name,  presence: true, length: { minimum:4, maximum: 50 }
     # VALID_EMAIL_REGEX = /\A[\w+-\.]+@([\w+-]+\.)+[\w-]{2,4}\z/

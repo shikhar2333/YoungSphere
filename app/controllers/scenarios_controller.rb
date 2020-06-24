@@ -3,7 +3,7 @@ class ScenariosController < ApplicationController
     include ScenariosHelper
     def new
       @scenario = Scenario.new
-      puts @scenario
+      # puts @scenario
     end
     def create
       @scenario = Scenario.new(scenario_params)

@@ -1,0 +1,2 @@
+module ScanImagesHelper
+end

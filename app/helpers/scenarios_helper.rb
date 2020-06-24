@@ -16,14 +16,13 @@ module ScenariosHelper
         bucket = "youngsphere-#{current_user.name}-#{scenario.id}"
         profile_name = 'JinMoRi'
         puts "Bucket" + bucket.to_s
-        region = 'ap-south-1'
-        s3 = Aws::S3::Client.new(profile: profile_name, region: region)
+        s3 = Aws::S3::Client.new(profile: profile_name, region: ENV['AWS_REGION'])
         s3.create_bucket(bucket: bucket)
         uploader = S3Uploader::Uploader.new({
             :s3_key => ENV['AWS_ACCESS_KEY'],
             :s3_secret => ENV['AWS_SECRET_KEY'],
             :destination_dir => 'app',
-            :region => region,
+            :region => ENV['AWS_REGION'],
             :threads => 10
            })
         uploader.upload(dir, bucket)

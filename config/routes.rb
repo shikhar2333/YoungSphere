@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scan_images
   resources :scenarios
   root 'users#index'
   # resources :users
