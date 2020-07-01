@@ -1,11 +1,7 @@
 <h1>New Scan Image</h1>
 <div class="field">
     <%= form_with(model: @scan_image, local: true) do |f| %>
-        <div id="my_camera"></div>
-        <input type=button value="Take Snapshot" onClick="take_snapshot()">
-        <%= f.hidden_field :scanned_image %>
-        <%= f.label :scanned_image %>: <br />
-        <div id="results">Your captured image will appear here...</div>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
+        <%= f.file_field :scanned_image %>
+        <%= f.submit "Upload", class: "btn btn-primary" %>
     <% end %>   
 </div>

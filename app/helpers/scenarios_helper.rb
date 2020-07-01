@@ -13,7 +13,7 @@ module ScenariosHelper
         end
     end
     def return_new_bucket (dir, bucket, scenario)
-        bucket = "youngsphere-#{current_user.name}-#{scenario.id}"
+        bucket = "youngsphere-#{current_user.name.to_s.downcase!}-#{scenario.id}"
         profile_name = 'JinMoRi'
         puts "Bucket" + bucket.to_s
         s3 = Aws::S3::Client.new(profile: profile_name, region: ENV['AWS_REGION'])

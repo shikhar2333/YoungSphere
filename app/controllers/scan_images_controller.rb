@@ -3,6 +3,7 @@ class ScanImagesController < ApplicationController
 
   # GET /scan_images
   # GET /scan_images.json
+  include ScanImagesHelper
   def index
     @scan_images = ScanImage.all
   end
@@ -26,11 +27,11 @@ class ScanImagesController < ApplicationController
   def create
     @scan_image = ScanImage.new(scan_image_params)
     @scan_image.user_id = current_user.id
-    # respond_to do |format|
+
     if @scan_image.save!
-      @scan_image.attach(params[:scan_image][:scanned_image])
-      # format.html { redirect_to @scan_image, notice: 'Scan image was successfully created.' }
-      redirect_to root_path
+      @scan_image.scanned_image.attach(params[:scan_image][:scanned_image])
+      upload_image_s3(@scan_image)
+      redirect_to root_path 
     else
       render 'new'
     end
