@@ -14,7 +14,7 @@ module ScanImagesHelper
                 File.delete(scan_image_attachment_path) if File.exist?(scan_image_attachment_path)
             end
         end
-        push_labels(scan_image_name, scan_image)
+        return push_labels(scan_image_name, scan_image)
     end
 
     def push_labels(scan_image_name, scan_image)
@@ -35,7 +35,7 @@ module ScanImagesHelper
         #  max_labels: 10
          }
         response = client.detect_text attrs
-        # scan_image.label = response.to_json
-        # puts "DETECTION: " + response.to_s
+        return response.text_detections
+        # puts "DETECTION: " + response.text_detections
     end
 end

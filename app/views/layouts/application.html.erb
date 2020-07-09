@@ -1,46 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Auth</title>
-    <meta charset="utf-8">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all',
-                                           'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <title>Youngsphere</title>
+      <meta charset="utf-8">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse">
+  <body class="sidebar-mini">
+      <%= render partial: "layouts/header" %>
       <div class="container">
-        <div id="navbar">
-          <ul class="nav navbar-nav">
-            <li><%= link_to 'Home', root_path %></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <% if user_signed_in? %>
-              <li class="dropdown-item">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <%= current_user.name %>
-                  <span class="caret"></span>
-                </a>
-              </li>
-              <li class="dropdown-item"><%= link_to 'Profile', edit_user_registration_path %></li>
-              <li class="dropdown-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-              <li class="dropdown-item"><%= link_to 'Upload', new_scenario_path %></li>
-              <li class="dropdown-menu"><%= link_to 'Scan Image', new_scan_image_path %></li>
-            <% else %>
-              <li><%= link_to 'Log In', new_user_session_path %></li>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <% end %>
-          </ul>
-        </div>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+          <%= debug(params) if Rails.env.development? %>
+          <%= render partial: "layouts/footer" %>
       </div>
-    </nav>
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
   </body>
 </html>

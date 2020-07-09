@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',      '6.0.3'
 gem 'puma',       '4.3.5'
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '>= 2.1.0'
+gem 'bootstrap', '~> 4.0'
+# gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 # gem 'bcrypt',     '3.1.13'

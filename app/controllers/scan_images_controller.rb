@@ -30,7 +30,7 @@ class ScanImagesController < ApplicationController
 
     if @scan_image.save!
       @scan_image.scanned_image.attach(params[:scan_image][:scanned_image])
-      upload_image_s3(@scan_image)
+      @scan_image.update_attribute(:label, upload_image_s3(@scan_image) )
       redirect_to root_path 
     else
       render 'new'

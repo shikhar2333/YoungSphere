@@ -6,8 +6,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("packs/cam")
-require("packs/webcam.min")
+import "bootstrap"
+import "../../assets/stylesheets/application.scss"
+import './bootstrap_custom.js'
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
