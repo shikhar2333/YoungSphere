@@ -21,14 +21,24 @@
                     <%= link_to 'Scan Image', new_scan_image_path, class: "dropdown-item"%>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    AR scenario
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <%= link_to 'View', scenarios_path, class: "dropdown-item"%>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to 'Upload', new_scenario_path, class: "dropdown-item"%>
+                </div>
+            </li>
             <% else %>
-                <li class="nav-item"><%= link_to 'Log In', new_user_session_path, class: " nav-link text-white"%></li>
-                <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: "nav-link text-white" %></li>
+                <li class="nav-item"><%= link_to 'Log In', new_user_session_path, class: "nav-link text-white"%></li>
+                <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: "nav-link text-white"%></li>
             <% end %>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>      
 </nav>

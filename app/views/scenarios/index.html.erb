@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>AR Scenarios</h1>
+
+<table class="table table-striped">
+    <tr>
+      <th scope="column">Title</th>
+      <th scope="column">View</th>
+      <th scope="column">Edit</th>
+      <th scope="column">Delete</th>
+    </tr>
+    <% @scenarios.each do |scenario| %>
+      <colgroup>
+          <col class="col-md-4">
+          <col class="col-md-7">
+      </colgroup>
+      <tbody>
+        <tr class="themed-grid-col">
+            <td scope="row"><%= scenario.title %></td>
+            <td scope="row"><%= link_to 'Show', scenario.link_to_scenario.to_s %></td>
+            <td scope="row"><%= link_to 'Edit', edit_scenario_path(scenario) %></td>
+            <td scope="row"><%= link_to 'Delete', scenario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      </tbody>
+    <% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Scenario', new_scenario_path %>
