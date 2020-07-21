@@ -33,9 +33,12 @@ module ScanImagesHelper
             },
         },
         #  max_labels: 10
-         }
+        }
         response = client.detect_text attrs
-        return response.text_detections
-        # puts "DETECTION: " + response.text_detections
+        array = Array.new
+        response.text_detections.each do |text|
+            array.push(text.detected_text.to_s)
+        end
+        return array
     end
 end

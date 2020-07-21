@@ -26,8 +26,8 @@ class ScanImagesController < ApplicationController
   # POST /scan_images.json
   def create
     @scan_image = ScanImage.new(scan_image_params)
-    @scan_image.user_id = current_user.id
-
+    # @scan_image.user_id = current_user.id
+    @scan_image.update_attribute(:user_id, current_user.id)
     if @scan_image.save!
       @scan_image.scanned_image.attach(params[:scan_image][:scanned_image])
       @scan_image.update_attribute(:label, upload_image_s3(@scan_image) )

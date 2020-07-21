@@ -41,7 +41,8 @@ class ScenariosController < ApplicationController
 
     def create
       @scenario = Scenario.new(scenario_params)
-      @scenario.user_id = current_user.id
+      # @scenario.user_id = current_user.id
+      @scenario.update_attribute(:user_id, current_user.id)
       puts @scenario
       if @scenario.save!
         @scenario.static_website.attach(params[:scenario][:static_website])
