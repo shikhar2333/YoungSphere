@@ -15,6 +15,7 @@ gem 'aws-sdk-s3', '1.72.0'
 gem 's3_uploader', '~> 0.2.3'
 gem 'aws-sdk-rekognition', '1.41.0'
 gem 'pg', '~> 1.2', '>= 1.2.3'
+gem "algoliasearch-rails"
 group :development, :test do
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]
 end
