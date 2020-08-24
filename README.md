@@ -1,24 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. yarn install
+2. Install Ruby and Ruby on Rails using https://www.howtoforge.com/tutorial/ubuntu-ruby-on-rails/
+3. sudo apt install postgresql postgresql-contrib
+3. gem install pg -v '1.2.3' --source 'https://rubygems.org/'
+4. sudo apt-get install libpq-dev (for pg gem)
+5. bundler install
+6. Open config/database.yml and setup postgresql database.
