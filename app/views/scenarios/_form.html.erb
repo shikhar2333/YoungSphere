@@ -15,6 +15,13 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link_to_scenario %>
+  </div>
+
+  <%= form.file_field :static_website %>
+
 
   <div class="actions">
     <%= form.submit %>

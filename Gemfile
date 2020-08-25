@@ -41,3 +41,8 @@ end
 # Uncomment the following line if you're running Rails
 # on a native Windows system:
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "figaro", "~> 1.2"
+
+gem "annotate", "~> 3.1"
+
+gem "goldiloader", "~> 3.1"

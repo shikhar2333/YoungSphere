@@ -15,3 +15,32 @@ import './bootstrap_custom.js'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import CookiesEuBanner from "cookies-eu-banner"
+
+document.addEventListener("turbolinks:load", () => {
+	
+var cookiesBanner = new CookiesEuBanner(function () {
+    /* Example: your Google Analytics script */
+    console.log("LOAD GA");
+}, true);
+
+// Prefer use addEventListener
+// For demo purpose I will use the CookiesEuBanner internal method
+// cookiesBanner.addClickListener(document.getElementById('custom-accept'), function () {
+//   cookiesBanner.setConsent(true);
+//   cookiesBanner.removeBanner();
+//   updateCookiesEuState();
+// });
+// cookiesBanner.addClickListener(document.getElementById('custom-reject'), function () {
+//   cookiesBanner.setConsent(false);
+//   cookiesBanner.removeBanner();
+//   updateCookiesEuState();
+// });
+// cookiesBanner.addClickListener(document.getElementById('custom-reset'), function () {
+//   cookiesBanner.deleteCookie(cookiesBanner.cookieName);
+//   window.location.reload();
+// });
+	
+})
+

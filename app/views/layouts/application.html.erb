@@ -7,6 +7,11 @@
       <%= csp_meta_tag %>
       <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      body {
+       padding-top: 0px !important;
+      }
+    </style>
   </head>
   <body class="sidebar-mini">
       <%= render partial: "layouts/header" %>
@@ -17,5 +22,6 @@
           <%= debug(params) if Rails.env.development? %>
           <%= render partial: "layouts/footer" %>
       </div>
-  </body>
+  <%= render partial: "shared/cookie_banner" %>
+</body>
 </html>

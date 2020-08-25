@@ -61,7 +61,7 @@ class ScenariosController < ApplicationController
               puts "My new website: #{website_attachment_path}"
             end
             flash[:success] = "AR scenario successfully uploaded"
-            redirect_to root_path  
+            redirect_to root_path
         end
       else 
         render 'new'
