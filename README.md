@@ -5,6 +5,11 @@
 4. sudo apt-get install libpq-dev (for pg gem)
 5. bundler install
 6. Open config/database.yml and setup postgresql database.
-    sudo -u postgres createuser -s -i -d -r -l -w <<username>>
-    sudo -u postgres psql -c "ALTER ROLE <<username>> WITH PASSWORD '<<password>>';" 
+   * Create a database 'youngsphere'
+   * ALTER USER postgres PASSWORD 'myPassword'
+   Now, fill these values under development.
 7. rails db:migrate
+   * For peer authentication error, use https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge
+8. Open 2 tabs:
+    1st tab: rails server
+    2nd tab: ./bin/webpack-dev-server 
