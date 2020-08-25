@@ -5,3 +5,6 @@
 4. sudo apt-get install libpq-dev (for pg gem)
 5. bundler install
 6. Open config/database.yml and setup postgresql database.
+    sudo -u postgres createuser -s -i -d -r -l -w <<username>>
+    sudo -u postgres psql -c "ALTER ROLE <<username>> WITH PASSWORD '<<password>>';" 
+7. rails db:migrate
