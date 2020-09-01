@@ -3,6 +3,7 @@ module Api
     class ApiController < ActionController::API
       include ActionController::MimeResponds
       before_action :check_basic_auth
+      protect_from_forgery unless: -> { request.format.json? }
       skip_before_action :verify_authenticity_token
       before_action :configure_permitted_parameters, if: :devise_controller?
       respond_to :json
