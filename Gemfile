@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',      '6.0.3'
 gem 'puma',       '4.3.5'
+gem 'rubyzip'
 gem 'bootstrap', '~> 4.0'
 gem 'devise',     '~> 4.2'
 gem 'webpacker', '~> 5.x'
@@ -60,3 +61,11 @@ gem 'omniauth-google-oauth2'
 gem "letter_opener", "~> 1.7"
 
 gem "mini_magick", "~> 4.10"
+
+gem "jsonapi-serializer", "~> 2.1"
+
+gem "sentry-raven", "~> 2.13"
+
+gem "airbrake", "~> 11.0"
+
+gem "rollbar", "~> 3.0"
