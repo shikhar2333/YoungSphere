@@ -6,9 +6,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+import 'jquery'
 import "bootstrap"
 import "../../assets/stylesheets/application.scss"
 import './bootstrap_custom.js'
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -25,22 +27,8 @@ var cookiesBanner = new CookiesEuBanner(function () {
     console.log("LOAD GA");
 }, true);
 
-// Prefer use addEventListener
-// For demo purpose I will use the CookiesEuBanner internal method
-// cookiesBanner.addClickListener(document.getElementById('custom-accept'), function () {
-//   cookiesBanner.setConsent(true);
-//   cookiesBanner.removeBanner();
-//   updateCookiesEuState();
-// });
-// cookiesBanner.addClickListener(document.getElementById('custom-reject'), function () {
-//   cookiesBanner.setConsent(false);
-//   cookiesBanner.removeBanner();
-//   updateCookiesEuState();
-// });
-// cookiesBanner.addClickListener(document.getElementById('custom-reset'), function () {
-//   cookiesBanner.deleteCookie(cookiesBanner.cookieName);
-//   window.location.reload();
-// });
-	
+
 })
 
+
+import "controllers"

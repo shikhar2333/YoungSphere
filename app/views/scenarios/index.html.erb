@@ -17,7 +17,7 @@
       <tbody>
         <tr class="themed-grid-col">
             <td scope="row"><%= scenario.title %></td>
-            <td scope="row"><%= link_to 'Show', scenario.link_to_scenario.to_s %></td>
+            <td scope="row"><%= link_to 'Show', scenario_path(scenario) %></td>
             <td scope="row"><%= link_to 'Edit', edit_scenario_path(scenario) %></td>
             <td scope="row"><%= link_to 'Delete', scenario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

@@ -1,29 +1,40 @@
-<%= form_with(model: scenario, local: true) do |form| %>
-  <% if scenario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(scenario.errors.count, "error") %> prohibited this scenario from being saved:</h2>
+<% avatar = scenario_avatar(@scenario, 100) %>
+<div data-controller='scenario'>
+  <%= form_with(model: scenario, local: true) do |form| %>
+    <% if scenario.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(scenario.errors.count, "error") %> prohibited this scenario from being saved:</h2>
 
-      <ul>
-        <% scenario.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% scenario.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="field">
+      <%= form.label :link_to_scenario %>
+      <%= form.text_field :link_to_scenario %>
+    </div>
+    <div class="field">
+      <%= form.label :topics %>
+      <%= form.select :topic_ids, Topic.all.pluck(:name, :id), {}, {multiple: true, data: { target: 'scenario.topic'}, placeholder:"Topic" }  %>
+    </div>
+
+    <%= form.file_field :static_website %>
+    <div>
+      <%= avatar.present? ? image_tag(scenario_avatar(@scenario, 100), class: "rounded-circle") : '' %>
+    </div>
+    <div>
+      <%= form.file_field :avatar %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link_to_scenario %>
-  </div>
-
-  <%= form.file_field :static_website %>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

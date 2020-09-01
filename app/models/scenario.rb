@@ -20,8 +20,13 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Scenario < ApplicationRecord
+    is_impressionable
     has_one_attached :static_website
-    belongs_to :user    
+    has_one_attached :avatar
+    belongs_to :user
+    has_many :scenario_topics, dependent: :destroy
+    has_many :topics, through: :scenario_topics
+    has_many :reactions, dependent: :destroy
     include AlgoliaSearch
     SECURED_INDEX_NAME = "AR_SCENARIO"
     algoliasearch index_name: SECURED_INDEX_NAME do

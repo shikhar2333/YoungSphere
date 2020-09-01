@@ -46,3 +46,17 @@ gem "figaro", "~> 1.2"
 gem "annotate", "~> 3.1"
 
 gem "goldiloader", "~> 3.1"
+
+gem "impressionist", "~> 2.0"
+
+gem "rack-cors", "~> 1.1"
+
+gem "devise-jwt", "~> 0.8.0"
+
+gem 'omniauth-facebook'
+# Use Omniauth Google plugin
+gem 'omniauth-google-oauth2'
+
+gem "letter_opener", "~> 1.7"
+
+gem "mini_magick", "~> 4.10"

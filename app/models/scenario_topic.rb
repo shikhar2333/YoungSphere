@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: scenario_topics
+#
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  scenario_id :bigint           not null
+#  topic_id    :bigint           not null
+#
+# Indexes
+#
+#  index_scenario_topics_on_scenario_id  (scenario_id)
+#  index_scenario_topics_on_topic_id     (topic_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (scenario_id => scenarios.id)
+#  fk_rails_...  (topic_id => topics.id)
+#
+class ScenarioTopic < ApplicationRecord
+  belongs_to :scenario
+  belongs_to :topic
+end

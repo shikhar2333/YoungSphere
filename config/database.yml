@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: youngsphere
+  database: youngsphere_local
   username: nikhil
   password: 99121Padma
   timeout: 5000
