@@ -19,15 +19,15 @@ class Users::SessionsController < Devise::SessionsController
     #respond_with resource, location: after_sign_in_path_for(resource)
     respond_to do |format|
       puts resource
-    if resource.present?
-      format.json { render json: resource }
-      format.html { redirect_to(after_sign_in_path_for(resource)) }
-    else
-      format.json { render json: resource }
-      format.html { render action: "new" }
+      if resource.present?
+        format.json { render json: resource }
+        format.html { redirect_to(after_sign_in_path_for(resource)) }
+      else
+        format.json { render json: resource }
+        format.html { render action: "new" }
+      end
     end
-    end
-    end
+  end
 
 # DELETE /resource/sign_out
 # def destroy

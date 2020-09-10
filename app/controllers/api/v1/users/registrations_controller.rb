@@ -1,5 +1,6 @@
 class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
     # POST /resource
+    skip_before_action :verify_authenticity_token
     def create
       build_resource(sign_up_params)
       resource.save
@@ -17,7 +18,7 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
       else
         clean_up_passwords resource
         set_minimum_password_length
-        respond_with resource
+        render json: resource.errors.full_messages
       end
     end
 end
