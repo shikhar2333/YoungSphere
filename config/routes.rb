@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :scan_images
   resources :scenarios do
     resources :reactions
+    resource :comments, module: :scenarios
   end
   root 'users#index'
 

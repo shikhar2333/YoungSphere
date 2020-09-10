@@ -27,6 +27,7 @@ class Scenario < ApplicationRecord
     has_many :scenario_topics, dependent: :destroy
     has_many :topics, through: :scenario_topics
     has_many :reactions, dependent: :destroy
+    has_many :comments, as: :commentable
     include AlgoliaSearch
     SECURED_INDEX_NAME = "AR_SCENARIO"
     algoliasearch index_name: SECURED_INDEX_NAME do

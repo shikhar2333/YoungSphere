@@ -18,7 +18,9 @@ import './bootstrap_custom.js'
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import CookiesEuBanner from "cookies-eu-banner"
+import CookiesEuBanner from 'cookies-eu-banner'
+import 'cookies-eu-banner/css/cookies-eu-banner.default.css'
+
 
 document.addEventListener("turbolinks:load", () => {
 	

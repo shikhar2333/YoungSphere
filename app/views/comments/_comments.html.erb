@@ -1,0 +1,6 @@
+<h3>Comments</h3>
+<% commentable.comments.each do |comment| %>
+  <div class="well">
+    <%= comment.user.name %>:<%= comment.body %>
+  </div>
+<% end %>
