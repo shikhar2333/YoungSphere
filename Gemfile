@@ -70,3 +70,5 @@ gem "sentry-raven", "~> 2.13"
 gem "airbrake", "~> 11.0"
 
 gem "rollbar", "~> 3.0"
+
+gem "kaminari", "~> 1.2"

@@ -41,16 +41,24 @@
 #                                       PUT      /scenarios/:id(.:format)                                                                 scenarios#update
 #                                       DELETE   /scenarios/:id(.:format)                                                                 scenarios#destroy
 #                                  root GET      /                                                                                        users#index
-#              new_user_api_session_api GET      /api/v1/sign_in(.:format)                                                                api/v1/api/v1/users/sessions#new {:format=>:json}
-#                      user_session_api POST     /api/v1/sign_in(.:format)                                                                api/v1/api/v1/users/sessions#create {:format=>:json}
-#              destroy_user_session_api DELETE   /api/v1/sign_out(.:format)                                                               api/v1/api/v1/users/sessions#destroy {:format=>:json}
-#                               account PUT      /api/v1/account(.:format)                                                                api/v1/api/v1/users/registrations#update {:format=>:json}
-#                                       DELETE   /api/v1/account(.:format)                                                                api/v1/api/v1/users/registrations#destroy {:format=>:json}
-#                                       POST     /api/v1/account(.:format)                                                                api/v1/api/v1/users/registrations#create {:format=>:json}
-#                              register GET      /api/v1/register(.:format)                                                               api/v1/api/v1/users/registrations#new {:format=>:json}
-#                                       GET      /api/v1/account(.:format)                                                                api/v1/api/v1/users/registrations#edit {:format=>:json}
-#                                       PATCH    /api/v1/account(.:format)                                                                api/v1/api/v1/users/registrations#update {:format=>:json}
-#                        account_cancel GET      /api/v1/account/cancel(.:format)                                                         api/v1/api/v1/users/registrations#cancel {:format=>:json}
+#                                       GET      /api/v1/scenarios(.:format)                                                              api/v1/scenarios#index {:format=>:json}
+#                                       POST     /api/v1/scenarios(.:format)                                                              api/v1/scenarios#create {:format=>:json}
+#                                       GET      /api/v1/scenarios/new(.:format)                                                          api/v1/scenarios#new {:format=>:json}
+#                                       GET      /api/v1/scenarios/:id/edit(.:format)                                                     api/v1/scenarios#edit {:format=>:json}
+#                                       GET      /api/v1/scenarios/:id(.:format)                                                          api/v1/scenarios#show {:format=>:json}
+#                                       PATCH    /api/v1/scenarios/:id(.:format)                                                          api/v1/scenarios#update {:format=>:json}
+#                                       PUT      /api/v1/scenarios/:id(.:format)                                                          api/v1/scenarios#update {:format=>:json}
+#                                       DELETE   /api/v1/scenarios/:id(.:format)                                                          api/v1/scenarios#destroy {:format=>:json}
+#              new_user_api_session_api GET      /api/v1/sign_in(.:format)                                                                api/v1/users/sessions#new {:format=>:json}
+#                      user_session_api POST     /api/v1/sign_in(.:format)                                                                api/v1/users/sessions#create {:format=>:json}
+#              destroy_user_session_api DELETE   /api/v1/sign_out(.:format)                                                               api/v1/users/sessions#destroy {:format=>:json}
+#                               account PUT      /api/v1/account(.:format)                                                                api/v1/users/registrations#update {:format=>:json}
+#                                       DELETE   /api/v1/account(.:format)                                                                api/v1/users/registrations#destroy {:format=>:json}
+#                                       POST     /api/v1/account(.:format)                                                                api/v1/users/registrations#create {:format=>:json}
+#                              register GET      /api/v1/register(.:format)                                                               api/v1/registrations#new {:format=>:json}
+#                                       GET      /api/v1/account(.:format)                                                                api/v1/registrations#edit {:format=>:json}
+#                                       PATCH    /api/v1/account(.:format)                                                                api/v1/registrations#update {:format=>:json}
+#                        account_cancel GET      /api/v1/account/cancel(.:format)                                                         api/v1/registrations#cancel {:format=>:json}
 #                      new_user_session GET      /users/sign_in(.:format)                                                                 users/sessions#new
 #                          user_session POST     /users/sign_in(.:format)                                                                 users/sessions#create
 #                  destroy_user_session DELETE   /users/sign_out(.:format)                                                                users/sessions#destroy
@@ -112,6 +120,7 @@ Rails.application.routes.draw do
 
   scope module: :api, defaults: { format: :json }, path: 'api' do
     scope module: :v1,  path: 'v1' do
+      resources :scenarios
       devise_scope :user do
         get    '/sign_in'   => 'users/sessions#new',     as: :new_user_api_session_api
         post   '/sign_in'   => 'users/sessions#create',  as: :user_session_api

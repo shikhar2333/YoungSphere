@@ -25,12 +25,15 @@
       <%= form.label :topics %>
       <%= form.select :topic_ids, Topic.all.pluck(:name, :id), {}, {multiple: true, data: { target: 'scenario.topic'}, placeholder:"Topic" }  %>
     </div>
-
+    <div>
+      <%= form.label :website_zip %>
     <%= form.file_field :static_website %>
+    </div>
     <div>
       <%= avatar.present? ? image_tag(scenario_avatar(@scenario, 100), class: "rounded-circle") : '' %>
     </div>
     <div>
+      <%= form.label :avatar %>
       <%= form.file_field :avatar %>
     </div>
     <div class="actions">
