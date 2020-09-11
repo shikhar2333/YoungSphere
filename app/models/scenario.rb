@@ -20,6 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Scenario < ApplicationRecord
+    include Rails.application.routes.url_helpers
     is_impressionable
     has_one_attached :static_website
     has_one_attached :avatar
@@ -41,5 +42,9 @@ class Scenario < ApplicationRecord
 
     def tags_list
         self.topics.pluck(:name)
+    end
+
+    def avatar_url
+        self.avatar.present? ? url_for(self.avatar): ''
     end
 end
