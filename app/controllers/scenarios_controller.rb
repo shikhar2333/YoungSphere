@@ -73,6 +73,6 @@ class ScenariosController < ApplicationController
     @scenario = Scenario.find(params[:id])
   end
   def scenario_params
-    params.require(:scenario).permit(:title, :static_website,:link_to_scenario, topic_ids: [])
+    params.require(:scenario).permit(:title, :static_website,:link_to_scenario, :avatar, topic_ids: [])
   end
 end
