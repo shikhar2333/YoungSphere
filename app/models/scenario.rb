@@ -34,4 +34,12 @@ class Scenario < ApplicationRecord
         attribute :title, :description, :tags
         searchableAttributes ['unordered(title)', 'unordered(description)', 'unordered(tags)']
     end
+
+    def uploader_name
+        self.user.name
+    end
+
+    def tags_list
+        self.topics.pluck(:name)
+    end
 end

@@ -10,7 +10,7 @@ module Api
         else
           @scenarios = Scenario.page(page).per(per_page)
         end
-        render json: @scenarios
+        render json: ScenarioSerializer.new(@scenarios).serializable_hash
       end
     end
   end
