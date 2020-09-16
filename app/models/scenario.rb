@@ -55,4 +55,5 @@ class Scenario < ApplicationRecord
     def num_of_likes
         self.reactions.where(verb: 'like').count
     end
+
 end

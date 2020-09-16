@@ -5,9 +5,9 @@ module Api
 
       def create
         @comment = @commentable.comments.new comment_params
-        @comment.user = current_user
+        @comment.user_id = current_user.id
         @comment.save
-        render json: @commentable
+        render json: @comment
       end
 
       def update

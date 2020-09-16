@@ -6,7 +6,7 @@ module Api
       def create
         reaction =  @scenario.reactions.find_or_initialize_by(verb: params[:verb], user_id: current_user.id)
         reaction.persisted? ? reaction.destroy : reaction.save
-        render json: reaction
+        render json: reaction.persisted?
       end
       private
       def find_scenario

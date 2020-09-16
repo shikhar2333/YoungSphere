@@ -2,6 +2,7 @@ module Api
   module V1
     class ScenariosController < ActionController::API
       before_action :set_scenario, only: [:show, :edit, :update, :destroy]
+      #before_action :authenticate_user!
       def index
         per_page = params[:per_page] || 10
         @per_page_count = per_page
@@ -15,7 +16,8 @@ module Api
       end
 
       def show
-        render json: ShowScenarioSerializer.new(@scenario, include: [:comments]).serializable_hash
+        params = {current_user_id: current_user.present? ? current_user.id : nil}
+        render json: ShowScenarioSerializer.new(@scenario, {params: params , include: [:comments]}).serializable_hash
       end
 
       private
