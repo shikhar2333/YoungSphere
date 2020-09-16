@@ -41,6 +41,21 @@
 #                                       PUT      /scenarios/:id(.:format)                                                                 scenarios#update
 #                                       DELETE   /scenarios/:id(.:format)                                                                 scenarios#destroy
 #                                  root GET      /                                                                                        users#index
+#                                       GET      /api/v1/scenarios/:scenario_id/reactions(.:format)                                       api/v1/reactions#index {:format=>:json}
+#                                       POST     /api/v1/scenarios/:scenario_id/reactions(.:format)                                       api/v1/reactions#create {:format=>:json}
+#                                       GET      /api/v1/scenarios/:scenario_id/reactions/new(.:format)                                   api/v1/reactions#new {:format=>:json}
+#                                       GET      /api/v1/scenarios/:scenario_id/reactions/:id/edit(.:format)                              api/v1/reactions#edit {:format=>:json}
+#                                       GET      /api/v1/scenarios/:scenario_id/reactions/:id(.:format)                                   api/v1/reactions#show {:format=>:json}
+#                                       PATCH    /api/v1/scenarios/:scenario_id/reactions/:id(.:format)                                   api/v1/reactions#update {:format=>:json}
+#                                       PUT      /api/v1/scenarios/:scenario_id/reactions/:id(.:format)                                   api/v1/reactions#update {:format=>:json}
+#                                       DELETE   /api/v1/scenarios/:scenario_id/reactions/:id(.:format)                                   api/v1/reactions#destroy {:format=>:json}
+#                                       GET      /api/v1/scenarios/:scenario_id/comments/new(.:format)                                    api/v1/scenarios/comments#new {:format=>:json}
+#                                       GET      /api/v1/scenarios/:scenario_id/comments/edit(.:format)                                   api/v1/scenarios/comments#edit {:format=>:json}
+#                                       GET      /api/v1/scenarios/:scenario_id/comments(.:format)                                        api/v1/scenarios/comments#show {:format=>:json}
+#                                       PATCH    /api/v1/scenarios/:scenario_id/comments(.:format)                                        api/v1/scenarios/comments#update {:format=>:json}
+#                                       PUT      /api/v1/scenarios/:scenario_id/comments(.:format)                                        api/v1/scenarios/comments#update {:format=>:json}
+#                                       DELETE   /api/v1/scenarios/:scenario_id/comments(.:format)                                        api/v1/scenarios/comments#destroy {:format=>:json}
+#                                       POST     /api/v1/scenarios/:scenario_id/comments(.:format)                                        api/v1/scenarios/comments#create {:format=>:json}
 #                                       GET      /api/v1/scenarios(.:format)                                                              api/v1/scenarios#index {:format=>:json}
 #                                       POST     /api/v1/scenarios(.:format)                                                              api/v1/scenarios#create {:format=>:json}
 #                                       GET      /api/v1/scenarios/new(.:format)                                                          api/v1/scenarios#new {:format=>:json}
@@ -120,7 +135,10 @@ Rails.application.routes.draw do
 
   scope module: :api, defaults: { format: :json }, path: 'api' do
     scope module: :v1,  path: 'v1' do
-      resources :scenarios
+      resources :scenarios do
+        resources :reactions
+        resource :comments, module: :scenarios
+      end
       devise_scope :user do
         get    '/sign_in'   => 'users/sessions#new',     as: :new_user_api_session_api
         post   '/sign_in'   => 'users/sessions#create',  as: :user_session_api

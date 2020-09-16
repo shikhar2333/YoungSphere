@@ -47,4 +47,12 @@ class Scenario < ApplicationRecord
     def avatar_url
         self.avatar.present? ? url_for(self.avatar): ''
     end
+
+    def num_of_views
+        self.impressionist_count(:filter=>:session_hash)
+    end
+
+    def num_of_likes
+        self.reactions.where(verb: 'like').count
+    end
 end
