@@ -3,6 +3,7 @@ module Api
     class Users::SessionsController < Devise::SessionsController
       skip_before_action :verify_authenticity_token
       respond_to :json
+      after_action -> { request.session_options[:skip] = true }
       # before_action :configure_sign_in_params, only: [:create]
 
       # GET /resource/sign_in
@@ -12,7 +13,6 @@ module Api
 
       # POST /resource/sign_in
       def create
-        puts "I am here!"
         self.resource = warden.authenticate!(auth_options)
         set_flash_message!(:notice, :signed_in)
         sign_in(resource_name, resource)
