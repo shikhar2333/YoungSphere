@@ -131,7 +131,7 @@ Rails.application.routes.draw do
     resources :reactions
     resource :comments, module: :scenarios
   end
-  root 'users#index'
+  root 'scenarios#index'
 
   scope module: :api, defaults: { format: :json }, path: 'api' do
     scope module: :v1,  path: 'v1' do

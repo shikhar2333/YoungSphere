@@ -1,5 +1,6 @@
 <% avatar = scenario_avatar(@scenario, 100) %>
-<div data-controller='scenario'>
+<div data-controller='scenario' class="wrapper">
+  <div id="">
   <%= form_with(model: scenario, local: true) do |form| %>
     <% if scenario.errors.any? %>
       <div id="error_explanation">
@@ -13,31 +14,32 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :title %>
-      <%= form.text_field :title %>
+      <%= form.text_field :title, class:"form-control login-input", placeholder:"Title" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :link_to_scenario %>
-      <%= form.text_field :link_to_scenario %>
+      <%= form.text_field :link_to_scenario, class:"form-control login-input", placeholder:"Link To Scenario" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :topics %>
-      <%= form.select :topic_ids, Topic.all.pluck(:name, :id), {}, {multiple: true, data: { target: 'scenario.topic'}, placeholder:"Topic" }  %>
+      <%= form.select :topic_ids, Topic.all.pluck(:name, :id), {}, {multiple: true, data: { target: 'scenario.topic'}, placeholder:"Topic", class:"login-input", placeholder:"Topics" }  %>
     </div>
-    <div>
-      <%= form.label :website_zip %>
-    <%= form.file_field :static_website %>
+    <div class="form-group">
+      <%= form.label :content_zip %>
+    <%= form.file_field :static_website, class:"form-control login-input", placeholder:"Website Zip" %>
     </div>
     <div>
       <%= avatar.present? ? image_tag(scenario_avatar(@scenario, 100), class: "rounded-circle") : '' %>
     </div>
-    <div>
+    <div class="form-group">
       <%= form.label :avatar %>
-      <%= form.file_field :avatar %>
+      <%= form.file_field :avatar, class:"form-control login-input", placeholder:"Avatar" %>
     </div>
-    <div class="actions">
-      <%= form.submit %>
+    <div class="form-group">
+      <%= form.submit class:"btn btn-default login-btn" %>
     </div>
   <% end %>
+</div>
 </div>
