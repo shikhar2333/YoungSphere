@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',      '6.0.3'
-gem 'puma',       '4.3.5'
+gem 'puma',       '4.3.11'
 gem 'rubyzip'
 gem 'bootstrap', '~> 4.0'
 gem 'devise',     '~> 4.2'
