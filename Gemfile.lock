@@ -174,7 +174,7 @@ GEM
     ipaddress (0.8.3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     json (2.3.1)
     jsonapi-serializer (2.1.0)
       activesupport (>= 4.2)
